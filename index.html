@@ -25,7 +25,7 @@
       border-radius: 20px;
       backdrop-filter: blur(10px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      max-width: 400px;
+      max-width: 500px;
     }
 
     h1 {
@@ -70,6 +70,23 @@
       font-size: 14px;
     }
 
+    .highlight {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 25px;
+      color: #fff;
+      background: linear-gradient(90deg, #fff, #ffe6f0, #fff);
+      padding: 10px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px white; }
+      to { box-shadow: 0 0 25px white; }
+    }
+
     .heart {
       position: absolute;
       color: white;
@@ -85,42 +102,50 @@
 </head>
 <body>
 
-  <div class="card">
+  <div class="card" id="mainCard">
     <h1>Happy Promise Day 💍</h1>
-    <p>I promise to always stand by your side and love you forever.</p>
+    <p>You are my favorite person in this world ❤️</p>
 
     <div class="question">
       Do you love me? ❤️<br>
       Will you stay with me for the whole life?
     </div>
 
-    <button class="yes" onclick="playMusic(); showMessage();">Yes ❤️</button>
-    <button class="no" onmouseover="moveButton(this)">No 😜</button>
+    <button class="yes" onclick="showPromises()">Yes ❤️</button>
+    <button class="no" onclick="noOption()">No 😜</button>
 
     <div class="footer">
       From <strong>Rakesh Gupta</strong> to <strong>Vandana</strong> 💖
     </div>
   </div>
 
-  <!-- Background Music -->
-  <audio id="bgMusic" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
-
   <script>
-    function playMusic() {
-      document.getElementById("bgMusic").play();
+
+    function showPromises() {
+      document.getElementById("mainCard").innerHTML = `
+        <h1>Yayyyy ❤️</h1>
+        <p>Here are my 10 Funny & Cute Promises 😄</p>
+        <ul style="text-align:left; font-size:16px;">
+          <li>1. I promise to share my food (sometimes 😜)</li>
+          <li>2. I promise to say sorry even when it's 50% your fault 😂</li>
+          <li>3. I promise to watch your favorite serial without sleeping 😴</li>
+          <li>4. I promise to take unlimited selfies with you 📸</li>
+          <li>5. I promise to fight with you but never leave you ❤️</li>
+          <li>6. I promise to remember important dates (I'll try 😅)</li>
+          <li>7. I promise to be your personal driver 🚗</li>
+          <li>8. I promise to support your dreams always ✨</li>
+          <li>9. I promise to make you smile every day 😊</li>
+          <li>10. I promise to love you forever and ever 💕</li>
+        </ul>
+        <div class="highlight">
+          Forever Yours 💖<br>
+          From Rakesh Gupta to Vandana
+        </div>
+      `;
     }
 
-    function showMessage() {
-      alert("Yay! ❤️ I promise to love you forever!");
-    }
-
-    function moveButton(btn) {
-      var x = Math.floor(Math.random() * 200) - 100;
-      var y = Math.floor(Math.random() * 200) - 100;
-      btn.style.left = x + "px";
-      btn.style.top = y + "px";
+    function noOption() {
+      alert("Sorry 😌 You don't have this option! Only YES is allowed ❤️");
     }
 
     // Floating hearts
@@ -132,6 +157,7 @@
       heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
       document.body.appendChild(heart);
     }
+
   </script>
 
 </body>
