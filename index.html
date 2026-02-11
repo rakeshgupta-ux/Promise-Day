@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Promise Day ❤️</title>
   <style>
     body {
@@ -28,16 +28,6 @@
       max-width: 500px;
     }
 
-    h1 {
-      margin-bottom: 15px;
-    }
-
-    .question {
-      font-size: 18px;
-      margin: 20px 0;
-      font-weight: bold;
-    }
-
     button {
       padding: 10px 20px;
       margin: 10px;
@@ -53,21 +43,11 @@
       color: #ff4b7d;
     }
 
-    .yes:hover {
-      background: #ff4b7d;
-      color: white;
-    }
-
     .no {
       background: transparent;
       border: 2px solid white;
       color: white;
       position: relative;
-    }
-
-    .footer {
-      margin-top: 20px;
-      font-size: 14px;
     }
 
     .highlight {
@@ -86,78 +66,49 @@
       from { box-shadow: 0 0 10px white; }
       to { box-shadow: 0 0 25px white; }
     }
-
-    .heart {
-      position: absolute;
-      color: white;
-      animation: float 6s linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(100vh); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh); opacity: 0; }
-    }
   </style>
 </head>
 <body>
 
   <div class="card" id="mainCard">
-    <h1>Happy Promise Day 💍</h1>
-    <p>You are my favorite person in this world ❤️</p>
-
-    <div class="question">
-      Do you love me? ❤️<br>
-      Will you stay with me for the whole life?
-    </div>
+    <h1>Happy Promise Day 💖</h1>
+    <p>Do you love me? ❤️<br>Will you stay with me for whole life?</p>
 
     <button class="yes" onclick="showPromises()">Yes ❤️</button>
-    <button class="no" onclick="noOption()">No 😜</button>
+    <button class="no" onclick="moveNo(this)">No 😜</button>
 
-    <div class="footer">
-      From <strong>Rakesh Gupta</strong> to <strong>Vandana</strong> 💖
+    <div style="margin-top:20px; font-size:14px;">
+      From <strong>Rakesh Gupta</strong> to <strong>Vandana</strong>
     </div>
   </div>
 
   <script>
-
     function showPromises() {
-      document.getElementById("mainCard").innerHTML = `
-        <h1>Yayyyy ❤️</h1>
-        <p>Here are my 10 Funny & Cute Promises 😄</p>
-        <ul style="text-align:left; font-size:16px;">
-          <li>1. I promise to share my food (sometimes 😜)</li>
-          <li>2. I promise to say sorry even when it's 50% your fault 😂</li>
-          <li>3. I promise to watch your favorite serial without sleeping 😴</li>
-          <li>4. I promise to take unlimited selfies with you 📸</li>
-          <li>5. I promise to fight with you but never leave you ❤️</li>
-          <li>6. I promise to remember important dates (I'll try 😅)</li>
-          <li>7. I promise to be your personal driver 🚗</li>
-          <li>8. I promise to support your dreams always ✨</li>
-          <li>9. I promise to make you smile every day 😊</li>
-          <li>10. I promise to love you forever and ever 💕</li>
-        </ul>
-        <div class="highlight">
-          Forever Yours 💖<br>
-          From Rakesh Gupta to Vandana
-        </div>
-      `;
+      var content = "";
+      content += "<h2>Yayyyy ❤️</h2>";
+      content += "<p>My 10 Funny & Cute Promises 😄</p>";
+      content += "<ol style='text-align:left;'>";
+      content += "<li>I promise to share my food (sometimes 😜)</li>";
+      content += "<li>I promise to say sorry even when it's 50% your fault 😂</li>";
+      content += "<li>I promise to watch your favorite serial without sleeping 😴</li>";
+      content += "<li>I promise to take unlimited selfies with you 📸</li>";
+      content += "<li>I promise to fight with you but never leave you ❤️</li>";
+      content += "<li>I promise to remember important dates (I'll try 😅)</li>";
+      content += "<li>I promise to be your personal driver 🚗</li>";
+      content += "<li>I promise to support your dreams always ✨</li>";
+      content += "<li>I promise to make you smile every day 😊</li>";
+      content += "<li>I promise to love you forever and ever 💕</li>";
+      content += "</ol>";
+      content += "<div class='highlight'>Forever Yours 💖<br>From Rakesh Gupta to Vandana</div>";
+      document.getElementById("mainCard").innerHTML = content;
     }
 
-    function noOption() {
-      alert("Sorry 😌 You don't have this option! Only YES is allowed ❤️");
+    function moveNo(btn) {
+      alert("You don't have this option 😌 Only YES allowed ❤️");
+      btn.style.position = "absolute";
+      btn.style.top = Math.random() * 80 + "%";
+      btn.style.left = Math.random() * 80 + "%";
     }
-
-    // Floating hearts
-    for (let i = 0; i < 20; i++) {
-      let heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-      document.body.appendChild(heart);
-    }
-
   </script>
 
 </body>
