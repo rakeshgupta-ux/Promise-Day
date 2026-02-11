@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Promise Day ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      text-align: center;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+    }
+
+    .question {
+      font-size: 18px;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background: white;
+      color: #ff4b7d;
+    }
+
+    .yes:hover {
+      background: #ff4b7d;
+      color: white;
+    }
+
+    .no {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      position: relative;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .heart {
+      position: absolute;
+      color: white;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Happy Promise Day 💍</h1>
+    <p>I promise to always stand by your side and love you forever.</p>
+
+    <div class="question">
+      Do you love me? ❤️<br>
+      Will you stay with me for the whole life?
+    </div>
+
+    <button class="yes" onclick="playMusic(); showMessage();">Yes ❤️</button>
+    <button class="no" onmouseover="moveButton(this)">No 😜</button>
+
+    <div class="footer">
+      From <strong>Rakesh Gupta</strong> to <strong>Vandana</strong> 💖
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function playMusic() {
+      document.getElementById("bgMusic").play();
+    }
+
+    function showMessage() {
+      alert("Yay! ❤️ I promise to love you forever!");
+    }
+
+    function moveButton(btn) {
+      var x = Math.floor(Math.random() * 200) - 100;
+      var y = Math.floor(Math.random() * 200) - 100;
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+
+    // Floating hearts
+    for (let i = 0; i < 20; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>
